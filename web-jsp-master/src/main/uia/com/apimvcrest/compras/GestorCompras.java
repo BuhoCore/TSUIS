@@ -44,7 +44,7 @@ public class GestorCompras {
 
         try {
             mapper.configure(DeserializationFeature.FAIL_ON_UNKNOWN_PROPERTIES, false);
-            miReporteNS = mapper.readValue(new FileInputStream("C:\\TSU-2022\\2021-P\\web-jsp\\arregloItemsV1.json"), ListaReportesNivelStock.class);
+            miReporteNS = mapper.readValue(new FileInputStream("arregloItemsV1.json"), ListaReportesNivelStock.class);
 
         } catch (JsonParseException e) {
             // TODO Auto-generated catch block
@@ -95,7 +95,7 @@ public class GestorCompras {
                 SolicitudOrdenCompra newSolicitud = new SolicitudOrdenCompra(idCompra, "SOC-" + idCompra, "", "", 0, item.getKey(), soc.getKey());
                 newSolicitud.setItems(soc.getValue());
                 misSolicitudesOC.add(newSolicitud);
-                mapper.writeValue(new File("C:/TSU-2022/ComprasProy/SolicitudOrdenCompra-" + newSolicitud.getName() + ".json"), newSolicitud);
+                mapper.writeValue(new File("ComprasProy/SolicitudOrdenCompra-" + newSolicitud.getName() + ".json"), newSolicitud);
             }
         }
 
